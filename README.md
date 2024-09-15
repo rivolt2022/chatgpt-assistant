@@ -45,10 +45,10 @@
 
 ## 2. 웹페이지 만들기
 
-1. [Chatbot UI Lite](https://github.com/rivolt2022/chatbot-ui-lite) 레포지토리를 클론합니다.
+1. [Chatgpt Assistant UI Lite](https://github.com/rivolt2022/chatgpt-assistant-ui-lite) 레포지토리를 클론합니다.
 
     ```bash
-    git clone https://github.com/rivolt2022/chatbot-ui-lite.git
+    git clone https://github.com/rivolt2022/chatgpt-assistant
     ```
 
 2. 클론한 레포지토리의 루트 디렉토리에 `.env` 또는 `.env.local` 파일을 생성하고 다음과 같이 작성합니다.
@@ -74,14 +74,14 @@
 
 5. Vercel을 통해 배포할 수도 있습니다.
 
-   [![Vercel 배포하기](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmckaywrigley%2Fchatbot-ui-lite&env=OPENAI_API_KEY&envDescription=OpenAI%20API%20Key%20needed%20for%20chat.&envLink=https%3A%2F%2Fopenai.com%2Fproduct&project-name=chatbot-ui-lite&repository-name=chatbot-ui-lite)
+   [![Vercel 배포하기](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Frivolt2022%2Fchatgpt-assistant-ui-lite&env=OPENAI_API_KEY,OPENAI_ASSISTANT_ID&envDescription=OpenAI%20API%20Key%20and%20Assistant%20ID%20needed%20for%20chat.&envLink=https%3A%2F%2Fopenai.com%2Fproduct&project-name=chatgpt-assistant-ui-lite&repository-name=chatgpt-assistant-ui-lite)
 
 ## 3. 로컬에서 실행하기
 
 1. 레포지토리를 클론합니다.
 
     ```bash
-    git clone https://github.com/mckaywrigley/chatbot-ui-lite.git
+    git clone https://github.com/rivolt2022/chatgpt-assistant-ui-lite
     ```
 
 2. 의존성을 설치합니다.
