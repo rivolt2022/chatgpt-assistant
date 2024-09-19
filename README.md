@@ -51,14 +51,14 @@
     git clone https://github.com/rivolt2022/chatgpt-assistant
     ```
 
-2. 클론한 레포지토리의 루트 디렉토리에 `.env` 또는 `.env.local` 파일을 생성하고 다음과 같이 작성합니다.
+2. 클론한 레포지토리의 루트 디렉토리의`.env` 파일에 다음과 같이 작성합니다.
 
     ```bash
-    OPENAI_API_KEY=<YOUR_KEY>
-    OPENAI_ASSISTANT_ID=<YOUR_ASSISTANT_ID>
+    NEXT_PUBLIC_OPENAI_API_KEY=<YOUR_KEY>
+    NEXT_PUBLIC_OPENAI_ASSISTANT_ID=<YOUR_ASSISTANT_ID>
     ```
 
-    - 여기서 `OPENAI_ASSISTANT_ID`는 앞서 생성한 Assistant의 ID입니다.
+    - 여기서 `NEXT_PUBLIC_OPENAI_ASSISTANT_ID`는 앞서 생성한 Assistant의 ID입니다.
 
 3. 의존성을 설치합니다.
 
@@ -74,7 +74,7 @@
 
 5. Vercel을 통해 배포할 수도 있습니다.
 
-   [Vercel 배포하기](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Frivolt2022%2Fchatgpt-assistant-ui-lite&env=OPENAI_API_KEY,OPENAI_ASSISTANT_ID&envDescription=OpenAI%20API%20Key%20and%20Assistant%20ID%20needed%20for%20chat.&envLink=https%3A%2F%2Fopenai.com%2Fproduct&project-name=chatgpt-assistant-ui-lite&repository-name=chatgpt-assistant-ui-lite)
+   [Vercel 배포하기](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Frivolt2022%2Fchatgpt-assistant-ui-lite&env=NEXT_PUBLIC_OPENAI_API_KEY,NEXT_PUBLIC_OPENAI_ASSISTANT_ID&envDescription=OpenAI%20API%20Key%20and%20Assistant%20ID%20needed%20for%20chat.&envLink=https%3A%2F%2Fopenai.com%2Fproduct&project-name=chatgpt-assistant-ui-lite&repository-name=chatgpt-assistant-ui-lite)
 
 ## 3. 로컬에서 실행하기
 
@@ -93,8 +93,8 @@
 3. `.env.local` 파일을 생성하고 OpenAI API 키를 입력합니다.
 
     ```bash
-    OPENAI_API_KEY=<YOUR_KEY>
-    OPENAI_ASSISTANT_ID=<YOUR_KEY>
+    NEXT_PUBLIC_OPENAI_API_KEY=<YOUR_KEY>
+    NEXT_PUBLIC_OPENAI_ASSISTANT_ID=<YOUR_KEY>
     ```
 
 4. 애플리케이션을 실행합니다.

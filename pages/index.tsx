@@ -36,43 +36,26 @@ interface RunCompletedResponse {
   };
 }
 
-interface StatusChangedEvent {
-  event: string;
-  status: string;
-  headers: {
-    uuid: string;
-    timestamp: number;
-  }[];
-}
-
-
-const assistant = new OpenAIAssistant(
-  {
-    apiKey: process.env.OPENAI_API_KEY || '', // Replace with your actual API key
-    dangerouslyAllowBrowser: true
-  },
-  process.env.OPENAI_ASSISTANT_ID || '' // Replace with your Assistant ID
-);
-
 export default function Home() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [assistant, setAssistant] = useState<OpenAIAssistant | null>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleSend = async (message: Message) => {
+    if (!assistant) return;  // assistant 초기화 전에 실행되지 않도록 방지
+
     const updatedMessages = [...messages, message];
     setMessages(updatedMessages);
     setLoading(true);
 
     try {
       await assistant.addMessage(message.content);
-
       await assistant.run();
-
     } catch (error) {
       console.error('Assistant error:', error);
       setLoading(false);
@@ -89,17 +72,28 @@ export default function Home() {
   };
 
   useEffect(() => {
-    //scrollToBottom();
-  }, [messages]);
+    // 초기화된 assistant 객체를 설정
+    const initializedAssistant = new OpenAIAssistant(
+      {
+        apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY  || '', // 환경변수 변경
+        dangerouslyAllowBrowser: true
+      },
+      process.env.NEXT_PUBLIC_OPENAI_ASSISTANT_ID  || '' // 환경변수 변경
+    );
 
-  // Initialize the assistant and set up event listeners
+    setAssistant(initializedAssistant);  // assistant 객체를 상태로 설정
+  }, []);
+
   useEffect(() => {
+    if (!assistant) return; // assistant가 초기화되기 전에는 아무것도 하지 않음
+
     setMessages([
       {
         role: "assistant",
         content: `보드게임 룰설명 챗봇입니다.(담고있는 보드게임 : @테라포밍마스@황혼의 투쟁@윙스팬)`
       }
     ]);
+
     assistant.initThread();
     assistant.on('run_completed', (data: RunCompletedResponse) => {
       const messageData = data.respmsg.body.data;
@@ -121,25 +115,15 @@ export default function Home() {
       }
       setLoading(false);
     });
-
-  }, []); // Dependency on isInitialized
+  }, [assistant]); // assistant가 초기화되었을 때만 실행
 
   return (
     <>
       <Head>
         <title>보드게임 룰설명 챗봇</title>
-        <meta
-          name="description"
-          content="보드게임 룰설명 챗봇"
-        />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1"
-        />
-        <link
-          rel="icon"
-          href="/favicon.ico"
-        />
+        <meta name="description" content="보드게임 룰설명 챗봇" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div className="flex flex-col h-screen">
