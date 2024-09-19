@@ -72,10 +72,6 @@
     npm run dev
     ```
 
-5. Vercel을 통해 배포할 수도 있습니다.
-
-   [Vercel 배포하기](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Frivolt2022%2Fchatgpt-assistant-ui-lite&env=NEXT_PUBLIC_OPENAI_API_KEY,NEXT_PUBLIC_OPENAI_ASSISTANT_ID&envDescription=OpenAI%20API%20Key%20and%20Assistant%20ID%20needed%20for%20chat.&envLink=https%3A%2F%2Fopenai.com%2Fproduct&project-name=chatgpt-assistant-ui-lite&repository-name=chatgpt-assistant-ui-lite)
-
 ## 3. 로컬에서 실행하기
 
 1. 레포지토리를 클론합니다.
