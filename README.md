@@ -69,7 +69,8 @@
 4. 애플리케이션을 실행합니다.
 
     ```bash
-    npm run dev
+    npm run build
+    npm run start
     ```
 
 ## 3. 로컬에서 실행하기
